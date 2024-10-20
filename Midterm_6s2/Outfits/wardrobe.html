@@ -225,40 +225,18 @@
             <h2 class="mt-4">Enjoy Our Products</h2>
             <p>There are five tiers to the Bootstrap grid system, one for each range of devices we support. Each tier starts at a minimum viewport size and automatically applies to the larger devices unless overridden.</p>
         
-            <div class="row mb-3 text-center">
-                <div class="col-4 themed-grid-col">.col-4</div>
-                <div class="col-4 themed-grid-col">.col-4</div>
-                <div class="col-4 themed-grid-col">.col-4</div>
+            <div class="container col themed-grid-col">
+                <div id="col" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                </div>
             </div>
-        
-            <div class="row mb-3 text-center">
-                <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
-                <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
-                <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
-            </div>
-        
-            <div class="row mb-3 text-center">
-                <div class="col-md-4 themed-grid-col">.col-md-4</div>
-                <div class="col-md-4 themed-grid-col">.col-md-4</div>
-                <div class="col-md-4 themed-grid-col">.col-md-4</div>
-            </div>
-        
-            <div class="row mb-3 text-center">
-                <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
-                <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
-                <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
-            </div>
-        
-            <div class="row mb-3 text-center">
-                <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
-                <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
-                <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
-            </div>
-        
-            <div class="row mb-3 text-center">
-                <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
-                <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
-                <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
+    
+            <!-- Copy from Album - Bootstrap -->
+            <label for="descriptionInput">Enter description:</label>
+            <input type="text" id="descriptionInput" placeholder="Enter description here...">
+            <button onclick="showCardsContainingDescriptionB()">Submit</button>
+
+            <!-- Input field that will be shown when third button is clicked -->
+            <div class="input-field" id="inputField">
             </div>
         </main>
 
@@ -345,7 +323,7 @@
 </footer>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="sidebars.js"></script>
-
+<script src="./ecabelin_Activity11_MoviesFromJSON_FormInput.js"></script>
 
 </body>
 </html>
