@@ -1,14 +1,14 @@
 function showCardsSortedByPriceLowHigh() {
-    fetch("./MoviesFromJSON.json")
+    fetch("./clothingproducts.json")
       .then((response) => response.json())
-      .then((myMovies) => loadMovies(myMovies, 1))
+      .then((myClothing) => loadMovies(myClothing, 1))
       .catch((error) => console.log("Error :" + error));
   }
   
   function showCardsSortedByPriceHighLow() {
-    fetch("./MoviesFromJSON.json")
+    fetch("./clothingproducts.json")
       .then((response) => response.json())
-      .then((myMovies) => loadMovies(myMovies, 2))
+      .then((myClothing) => loadMovies(myClothing, 2))
       .catch((error) => console.log("Error :" + error));
   }
   
@@ -19,41 +19,40 @@ function showCardsSortedByPriceLowHigh() {
   }
   
   function showCardsContainingDescriptionB() {
-    fetch("./MoviesFromJSON.json")
+    fetch("./clothingproducts.json")
       .then((response) => response.json())
-      .then((myMovies) => loadMovies(myMovies, 3))
+      .then((myClothing) => loadMovies(myClothing, 3))
       .catch((err) => console.log("Error :" + err));
   }
   
-  function loadMovies(movies, n) {
-  
-    let arrayMovies = [];
-    for (let i = 0; i < movies.movies.length; i++) { //Convert myMovies to Array
-      arrayMovies.push(movies.movies[i]);
+  function loadClothing(clothing, n) {
+    let arrayClothing = [];
+    for (let i = 0; i < clothing.products.length; i++) { //Convert myMovies to Array
+      arrayMovies.push(clothing.products[i]);
     }
   
     if (n == 1) { //Sort array from low to high
-      sortedMovies = arrayMovies.sort((p1, p2) =>
+      sortedClothing = arrayClothing.sort((p1, p2) =>
         p1.price > p2.price ? 1 : p1.price < p2.price ? -1 : 0
       );
     } 
 
     else if (n === 2) { //Sort array from high to low
-      sortedMovies = arrayMovies.sort((p1, p2) =>
+      sortedClothing = arrayClothing.sort((p1, p2) =>
         p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
       );
     } 
     else if (n === 3) {
 
       // Description Input
-      sortedMovies = [];     // Clear Movies
+      sortedClothing = [];     // Clear Movies
       const inputDescription = document.getElementById("descriptionInput").value; // Description
       document.getElementById("inputField").style.display = "none"; // Input field Mask
   
       // Select movies only containing input description
-      for (let movie of arrayMovies) {
-        if (movie.description.includes(inputDescription)) {
-          sortedMovies.push(movie);
+      for (let clothing of arrayClothing) {
+        if (clothing.name.includes(inputDescription)) {
+          sortedClothing.push(movie);
         }
       }
     } 
@@ -61,12 +60,21 @@ function showCardsSortedByPriceLowHigh() {
     var CardMovie = document.getElementById("col"); // Find bootstap ID Card
   
     CardMovie.innerHTML = ""; // Clear Movie Data
-  
-    for (let i = 0; i < sortedMovies.length; i++) {
-      let title = sortedMovies[i].title;
-      let year = sortedMovies[i].year;
-      let url = sortedMovies[i].url;
-      let price = sortedMovies[i].price;
+      /*
+  {
+            "name": "Drilocarius V2's",
+            "imageUrl": "./OutfitImages/DrilocariusV2.webp",
+            "price": 90.99,
+            "category": "Robes", 
+            "color": "Red"
+        },
+  */
+
+    for (let i = 0; i < sortedClothing.length; i++) {
+      let name = sortedClothing[i].name;
+      let price = sortedClothing[i].price;
+      let category = sortedClothing[i].category;
+      let color = sortedClothing[i].color;
       // construct the HTML element
       let AddCardMovie = document.createElement("div");
       AddCardMovie.classList.add("col"); // Add Bootstrap class to the column
@@ -74,7 +82,7 @@ function showCardsSortedByPriceLowHigh() {
            <div class="card shadow-sm">
              <img src=${url} class="card-img-top" alt="..."></img>
              <div class="card-body">
-               <p class="card-text"> <strong>${title}</strong>, ${year}, $${price}</p>
+               <p class="card-text"> <strong>${name}</strong>, ${year}, $${price}</p>
              </div>
            </div>
          `;
@@ -95,4 +103,5 @@ function showCardsSortedByPriceLowHigh() {
         .catch((error) => console.log("Error: " + error));
     });
   }
+  
   
