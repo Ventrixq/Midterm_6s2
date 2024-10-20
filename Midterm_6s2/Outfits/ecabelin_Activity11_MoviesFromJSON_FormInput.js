@@ -1,12 +1,12 @@
 function showCardsSortedByPriceLowHigh() {
-    fetch("./clothingproducts.json")
+    fetch("./data.json")
       .then((response) => response.json())
-      .then((myClothing) => loadMovies(myClothing, 1))
+      .then((myClothing) => loadClothing(myClothing, 1))
       .catch((error) => console.log("Error :" + error));
   }
   
   function showCardsSortedByPriceHighLow() {
-    fetch("./clothingproducts.json")
+    fetch("./data.json")
       .then((response) => response.json())
       .then((myClothing) => loadMovies(myClothing, 2))
       .catch((error) => console.log("Error :" + error));
@@ -19,9 +19,9 @@ function showCardsSortedByPriceLowHigh() {
   }
   
   function showCardsContainingDescriptionB() {
-    fetch("./clothingproducts.json")
+    fetch("./data.json")
       .then((response) => response.json())
-      .then((myClothing) => loadMovies(myClothing, 3))
+      .then((myClothing) => loadClothing(myClothing, 3))
       .catch((err) => console.log("Error :" + err));
   }
   
@@ -57,9 +57,9 @@ function showCardsSortedByPriceLowHigh() {
       }
     } 
   
-    var CardMovie = document.getElementById("col"); // Find bootstap ID Card
+    var CardClothing = document.getElementById("col"); // Find bootstap ID Card
   
-    CardMovie.innerHTML = ""; // Clear Movie Data
+    CardClothing.innerHTML = ""; // Clear Movie Data
       /*
   {
             "name": "Drilocarius V2's",
@@ -76,17 +76,17 @@ function showCardsSortedByPriceLowHigh() {
       let category = sortedClothing[i].category;
       let color = sortedClothing[i].color;
       // construct the HTML element
-      let AddCardMovie = document.createElement("div");
-      AddCardMovie.classList.add("col"); // Add Bootstrap class to the column
-      AddCardMovie.innerHTML = `
+      let AddCardClothing = document.createElement("div");
+      AddCardClothing.classList.add("col"); // Add Bootstrap class to the column
+      AddCardClothing.innerHTML = `
            <div class="card shadow-sm">
              <img src=${url} class="card-img-top" alt="..."></img>
              <div class="card-body">
-               <p class="card-text"> <strong>${name}</strong>, ${year}, $${price}</p>
+               <p class="card-text"> <strong>${name}</strong>, ${category}, $${price}, ${color}</p>
              </div>
            </div>
          `;
-      CardMovie.appendChild(AddCardMovie);
+      CardClothing.appendChild(AddCardClothing);
     } // end of for
   }
   
@@ -97,7 +97,7 @@ function showCardsSortedByPriceLowHigh() {
     b.addEventListener("submit", (event) => {
       event.preventDefault(); // Prevent the form from submitting in the traditional way
       //fetch JSON
-      fetch("./MoviesFromJSON.json")
+      fetch("./data.json")
         .then((response) => response.json())
         .then((data) => appendData(data))
         .catch((error) => console.log("Error: " + error));
