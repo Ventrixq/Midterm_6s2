@@ -8,7 +8,7 @@ function showCardsSortedByPriceLowHigh() {
   function showCardsSortedByPriceHighLow() {
     fetch("./data.json")
       .then((response) => response.json())
-      .then((myClothing) => loadMovies(myClothing, 2))
+      .then((myClothing) => loadClothing(myClothing, 2))
       .catch((error) => console.log("Error :" + error));
   }
   
@@ -28,7 +28,7 @@ function showCardsSortedByPriceLowHigh() {
   function loadClothing(clothing, n) {
     let arrayClothing = [];
     for (let i = 0; i < clothing.products.length; i++) { //Convert myMovies to Array
-      arrayMovies.push(clothing.products[i]);
+      arrayClothing.push(clothing.products[i]);
     }
   
     if (n == 1) { //Sort array from low to high
@@ -52,12 +52,12 @@ function showCardsSortedByPriceLowHigh() {
       // Select movies only containing input description
       for (let clothing of arrayClothing) {
         if (clothing.name.includes(inputDescription)) {
-          sortedClothing.push(movie);
+          sortedClothing.push(clothing);
         }
       }
     } 
   
-    var CardClothing = document.getElementById("col"); // Find bootstap ID Card
+    var CardClothing = document.getElementById("productdisplay"); // Find bootstap ID Card
   
     CardClothing.innerHTML = ""; // Clear Movie Data
       /*
@@ -72,12 +72,13 @@ function showCardsSortedByPriceLowHigh() {
 
     for (let i = 0; i < sortedClothing.length; i++) {
       let name = sortedClothing[i].name;
+      let url = sortedClothing[i].imageUrl;
       let price = sortedClothing[i].price;
       let category = sortedClothing[i].category;
       let color = sortedClothing[i].color;
       // construct the HTML element
       let AddCardClothing = document.createElement("div");
-      AddCardClothing.classList.add("col"); // Add Bootstrap class to the column
+      AddCardClothing.classList.add("productdisplay"); // Add Bootstrap class to the column
       AddCardClothing.innerHTML = `
            <div class="card shadow-sm">
              <img src=${url} class="card-img-top" alt="..."></img>
@@ -93,7 +94,7 @@ function showCardsSortedByPriceLowHigh() {
   function fetchData() {
     //Read form
     const b = document.getElementById("my_form");
-  
+    
     b.addEventListener("submit", (event) => {
       event.preventDefault(); // Prevent the form from submitting in the traditional way
       //fetch JSON
@@ -104,4 +105,4 @@ function showCardsSortedByPriceLowHigh() {
     });
   }
   
-  
+  showCardsContainingDescriptionB()
