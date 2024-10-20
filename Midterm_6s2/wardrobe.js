@@ -1,12 +1,12 @@
 function showCardsSortedByPriceLowHigh() {
-    fetch("./data.json")
+    fetch("./wardrobedata.json")
       .then((response) => response.json())
       .then((myClothing) => loadClothing(myClothing, 1))
       .catch((error) => console.log("Error :" + error));
   }
   
   function showCardsSortedByPriceHighLow() {
-    fetch("./data.json")
+    fetch("./wardrobedata.json")
       .then((response) => response.json())
       .then((myClothing) => loadClothing(myClothing, 2))
       .catch((error) => console.log("Error :" + error));
@@ -19,7 +19,7 @@ function showCardsSortedByPriceLowHigh() {
   }
   
   function showCardsContainingDescriptionB() {
-    fetch("./data.json")
+    fetch("./wardrobedata.json")
       .then((response) => response.json())
       .then((myClothing) => loadClothing(myClothing, 3))
       .catch((err) => console.log("Error :" + err));
@@ -79,6 +79,7 @@ function showCardsSortedByPriceLowHigh() {
       // construct the HTML element
       let AddCardClothing = document.createElement("div");
       AddCardClothing.classList.add("productdisplay"); // Add Bootstrap class to the column
+      /*
       AddCardClothing.innerHTML = `
            <div class="card shadow-sm">
              <img src=${url} class="card-img-top" alt="..."></img>
@@ -87,6 +88,33 @@ function showCardsSortedByPriceLowHigh() {
              </div>
            </div>
          `;
+    */
+    
+      AddCardClothing.innerHTML = `
+        <div class="swiper-slide">
+            <div class="product-item image-zoom-effect link-effect">
+         <div class="image-holder position-relative">
+        <a href="wardrobe.html">
+            <img src="${url}" alt="${category}" class="product-image img-fluid">
+        </a>
+        <a href="wardrobe.html" class="btn-icon btn-wishlist">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+            <use xlink:href="#heart"></use>
+            </svg>
+        </a>
+        </div>
+        <div class="product-content">
+        <h5 class="element-title text-uppercase fs-5 mt-3">
+            <a href="wardrobe.html">${name}</a>
+        </h5>
+        <p>${name}</p>
+        <a href="#" class="text-decoration-none" data-after="Add to cart">
+            <span>$${price}</span>
+        </a>
+        </div>
+        </div>
+        </div>`;
+    
       CardClothing.appendChild(AddCardClothing);
     } // end of for
   }
@@ -98,7 +126,7 @@ function showCardsSortedByPriceLowHigh() {
     b.addEventListener("submit", (event) => {
       event.preventDefault(); // Prevent the form from submitting in the traditional way
       //fetch JSON
-      fetch("./data.json")
+      fetch("./wardrobedata.json")
         .then((response) => response.json())
         .then((data) => appendData(data))
         .catch((error) => console.log("Error: " + error));
