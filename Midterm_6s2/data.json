@@ -8,5 +8,35 @@
     "name": "Grenol's Nature Slovs",
     "imageUrl": "./images/",
     "price": 90.99
+  },
+  {
+    "name": "Winterbane Glonks",
+    "imageUrl": "./images/",
+    "price": 50.99
+  },
+  {
+    "name": "Keron Softpols",
+    "imageUrl": "./images/",
+    "price": 59.99
+  },
+  {
+    "name": "Webwewaver T3's",
+    "imageUrl": "./images/",
+    "price": 249.99
+  },
+  {
+    "name": "ElderLine Max",
+    "imageUrl": "./images/",
+    "price": 109.99
+  },
+  {
+    "name": "Scholars First",
+    "imageUrl": "./images/",
+    "price": 99.99
+  },
+  {
+    "name": "Jolonquis 13",
+    "imageUrl": "./images/",
+    "price": 99.99
   }
 ]

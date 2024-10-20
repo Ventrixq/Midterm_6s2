@@ -1,0 +1,33 @@
+.anim{
+    outline-width: 1px;
+    outline-offset: 0;
+    outline-style: inset;
+    outline-color: rgba(175, 136, 179, 0.75);
+    animation: animateOutline 1.5s ease infinite;
+}
+
+@keyframes animateOutline {
+    0% {
+        outline-width: 1px;
+        outline-offset: 1px;
+        outline-color: rgba(211, 15, 162, 0.75);
+    }
+
+    10% {
+        outline-color: rgba(244, 6, 141, 0.75);
+    }
+
+    /* The animation finishes at 50% */
+    50% {
+        outline-width: 20px;
+        outline-offset: 10px;
+        outline-color: rgba(0, 130, 206, 0);
+    }
+
+    100% {
+        outline-width: 30px;
+        outline-offset: 2px;
+        outline-color: rgba(102, 102, 102, 0);
+    }
+}
+  

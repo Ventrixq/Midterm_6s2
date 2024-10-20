@@ -1,0 +1,81 @@
+.container {
+  max-width: 960px;
+}
+
+.icon-link > .bi {
+  width: .75em;
+  height: .75em;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+  background-color: rgba(102, 73, 73, 0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #7b5b5b;
+  transition: color .15s ease-in-out;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.text-bg-dark:hover {
+  transform: scale(1.05); /* Slightly increase the size of the entire container */
+  transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.text-bg-dark .bg-body:hover {
+  transform: scale(1.05); /* Apply the effect to the inner div (image) */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.text-bg-dark .bg-body-tertiary:hover {
+  transform: scale(1.05); /* Apply the effect to the inner div (image) */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+
+.bg-body-tertiary:hover {
+  transform: scale(1.05); /* Slightly increase the size */
+  transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.bg-body-tertiary .bg-dark:hover {
+  transform: scale(1.05); /* Apply the effect to the inner div */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.bg-body-tertiary .bg-body:hover {
+  transform: scale(1.05); /* Apply the effect to the inner div (image) */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+
+/*
+place navbar before this class tag 
+so that the navbar takes up entire width
+while letting us pad the body
+*/
+.bodPad {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    flex: 1;
+  }
+}
