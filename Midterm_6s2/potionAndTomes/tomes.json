@@ -1,0 +1,17 @@
+{
+    "tomes": [
+      {
+        "title": "Fire Tome",
+        "description": "A tome of fiery spells.",
+        "color": "red",
+        "image": "../images/FireTome.jpg"
+      },
+      {
+        "title": "Fortitude Potion",
+        "description": "A potion for enhancing strength.",
+        "color": "blue",
+        "image": "../images/fortitudePot.jpg"
+      }
+    ]
+  }
+  

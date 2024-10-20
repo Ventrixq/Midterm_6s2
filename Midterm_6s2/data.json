@@ -1,61 +1,27 @@
-{
-    "products": [
-        {
-            "name": "Drilocarius V2's",
-            "imageUrl": "./OutfitImages/DrilocariusV2.webp",
-            "price": 90.99,
-            "category": "Robes", 
-            "color": "Red"
-        },
-        {
-            "name": "Grenol's Nature Slovs",
-            "imageUrl": "./OutfitImages/GrenolsNatureSlovs.webp",
-            "price": 90.99,
-            "category": "Cloaks", 
-            "color": "Green"
-        },
-        {
-            "name": "Wintersbane Glonks",
-            "imageUrl": "./OutfitImages/WintersbaneGlonks.webp",
-            "price": 50.99,
-            "category": "Cloaks", 
-            "color": "White"
-        },
-        {
-            "name": "Keron Softpols",
-            "imageUrl": "./OutfitImages/KeronSoftPols.webp",
-            "price": 59.99,
-            "category": "Cloaks", 
-            "color": "Blue"
-        },
-        {
-            "name": "Webweaver T3's",
-            "imageUrl": "./OutfitImages/WebWeaverT3.webp",
-            "price": 249.99,
-            "category": "Cloaks", 
-            "color": "Blue"
-        },
-        {
-            "name": "ElderLine Max",
-            "imageUrl": "./OutfitImages/ElderLineMax.webp",
-            "price": 109.99,
-            "category": "Cloaks", 
-            "color": "Blue"
-        },
-        {
-            "name": "Scholars First",
-            "imageUrl": "./OutfitImages/ScholarsFirst.webp",
-            "price": 99.99,
-            "category": "Jackets", 
-            "color": "Green"
-        },
-        {
-            "name": "Jolonquis 13",
-            "imageUrl": "./OutfitImages/Jolonquis13.webp",
-            "price": 99.99,
-            "category": "Jackets", 
-            "color": "Red"
-        }
-     
-    ]
-}
+[
+  {
+      "title": "Earth Tome",
+      "description": "A Novice Friendly Tome For Minor Manipulation of Dirt and Stone. Note: Popular Amongst Fourth-Class Academy Scholars",
+      "image": "images/EarthTome.jpg",
+      "color": "rgb(147, 255, 93)"
+  },
+  {
+      "title": "Fire Tome",
+      "description": "An Advanced Beginner's Perfect Tome For Flame Manipulation. Note: A Go To Tome For Mana Control Classes. Exceptionally High Skill Curve.",
+      "image": "images/FireTome.jpg",
+      "color": "#ed8f3d"
+  },
+  {
+      "title": "Holy Tome",
+      "description": "A Competent Wizard's Go To Start On Deity Essence Extraction. Note: A Go To Tome For Protection And Rejuvenation Classes.",
+      "image": "images/HolyTome.jpg",
+      "color": "rgb(243, 234, 157)"
+  },
+  {
+      "title": "Void Tome",
+      "description": "An Expert Archmage's First Textbook Over Astral Mana Starbinding and Manipulation. Note: Often Referenced and Studied By Academy Professors and Deans.",
+      "image": "images/VoidTome.jpg",
+      "color": "rgb(96, 175, 232)"
+  }
+]
+
