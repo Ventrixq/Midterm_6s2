@@ -79,41 +79,27 @@ function showCardsSortedByPriceLowHigh() {
       // construct the HTML element
       let AddCardClothing = document.createElement("div");
       AddCardClothing.classList.add("productdisplay"); // Add Bootstrap class to the column
-      /*
+      
       AddCardClothing.innerHTML = `
-           <div class="card shadow-sm">
-             <img src=${url} class="card-img-top" alt="..."></img>
-             <div class="card-body">
-               <p class="card-text"> <strong>${name}</strong>, ${category}, $${price}, ${color}</p>
-             </div>
+           <div class="card text-center border shadow-0 ">
+                <div class="bg-image hover-overlay ripple">
+                    <img src=${url} class="img-fluid" />
+                    <a href="#!">
+                    <div class="mask" style="background-color: rgba(255, 255, 255, 255)"></div>
+                    </a>
+                </div>
+                <div class="card-header">${name}</div>
+                <div class="card-body">
+                    <p class="card-text">
+                        ${category}, 
+                        ${price}, 
+                        ${color}
+                    </p>
+
+                    <button type="button" class="btn btn-primary">Buy</button>
+                </div>
            </div>
          `;
-    */
-    
-      AddCardClothing.innerHTML = `
-        <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-         <div class="image-holder position-relative">
-        <a href="wardrobe.html">
-            <img src="${url}" alt="${category}" class="product-image img-fluid">
-        </a>
-        <a href="wardrobe.html" class="btn-icon btn-wishlist">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-            <use xlink:href="#heart"></use>
-            </svg>
-        </a>
-        </div>
-        <div class="product-content">
-        <h5 class="element-title text-uppercase fs-5 mt-3">
-            <a href="wardrobe.html">${name}</a>
-        </h5>
-        <p>${name}</p>
-        <a href="#" class="text-decoration-none" data-after="Add to cart">
-            <span>$${price}</span>
-        </a>
-        </div>
-        </div>
-        </div>`;
     
       CardClothing.appendChild(AddCardClothing);
     } // end of for
