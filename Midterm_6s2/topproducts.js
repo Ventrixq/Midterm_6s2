@@ -42,20 +42,6 @@ function showCardsSortedByPriceLowHigh() {
         p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
       );
     } 
-    else if (n === 3) {
-
-      // Description Input
-      sortedClothing = [];     // Clear Movies
-      const inputDescription = document.getElementById("descriptionInput").value; // Description
-      document.getElementById("inputField").style.display = "none"; // Input field Mask
-  
-      // Select movies only containing input description
-      for (let clothing of arrayClothing) {
-        if (clothing.name.includes(inputDescription)) {
-          sortedClothing.push(clothing);
-        }
-      }
-    } 
   
     var CardClothing = document.getElementById("productdisplay"); // Find bootstap ID Card
   
@@ -118,4 +104,4 @@ function showCardsSortedByPriceLowHigh() {
     });
   }
   
-  showCardsContainingDescriptionB()
+  showCardsSortedByPriceHighLow()

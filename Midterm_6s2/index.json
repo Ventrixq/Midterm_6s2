@@ -1,0 +1,23 @@
+{
+    "models": [
+        {
+            "name": "Gandarf",
+            "imageUrl": "./DashboardImages/Gandarf.jpeg",
+            "description": "The Coolest Guy Around",
+            "age": 233
+        },
+        {
+            "name": "Mithrandite",
+            "imageUrl": "./DashboardImages/Mithrandite.jpeg",
+            "description": "The Second Coolest Guy Around",
+            "age": 123
+        },
+        {
+            "name": "Ranni",
+            "imageUrl": "./DashboardImages/Ranni.avif",
+            "description": "The Second Coolest Guy Around",
+            "age": 123
+        }
+     
+    ]
+}

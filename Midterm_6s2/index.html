@@ -94,6 +94,91 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+      * {
+         box-sizing: border-box;
+        }
+
+    body {
+    display: grid;
+    padding-bottom: 90px;
+    place-items: center;
+    min-height: 100vh;
+    }
+
+    .card {
+    --blur: 16px;
+    width: var(--size);
+    aspect-ratio: 4 / 3;
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    color: #000;
+    transform: translateZ(0);
+    scale: 1;
+    }
+
+    .card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(calc(1 + (var(--hover, 0) * 0.25))) rotate(calc(var(--hover, 0) * -5deg));
+    transition: transform 0.2s;
+    }
+
+    .card__footer {
+    padding: 0 1.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: red;
+    display: grid;
+    grid-template-row: auto auto;
+    gap: 0.5ch;
+    background: hsl(0 0% 100% / 0.5);
+    backdrop-filter: blur(var(--blur));
+    height: 30%;
+    align-content: center;
+    }
+
+    .card__action {
+    position: absolute;
+    aspect-ratio: 1;
+    width: calc(var(--size) * 0.15);
+    bottom: 30%;
+    right: 1.5rem;
+    transform: translateY(50%)
+        translateY(
+        calc(
+            (var(--size) * 0.4)
+        )
+        )
+        translateY(calc(var(--hover, 0) * (var(--size) * -0.4)));
+    background: purple;
+    display: grid;
+    place-items: center;
+    border-radius: 0.5rem;
+    background: hsl(0 0% 100% / 0.5);
+    /*   backdrop-filter: blur(calc(var(--blur) * 0.5)); */
+    transition: transform 0.2s;
+    }
+
+    .card__action svg {
+    aspect-ratio: 1;
+    width: 50%;
+    }
+
+    .card__footer span:nth-of-type(1) {
+    font-size: calc(var(--size) * 0.065);
+    }
+
+    .card__footer span:nth-of-type(2) {
+    font-size: calc(var(--size) * 0.035);
+    }
+
+    .card:is(:hover, :focus-visible) {
+    --hover: 1;
+    }
 
     
     </style>
@@ -269,44 +354,11 @@
       </h3>
 
       <article class="blog-post">
-            <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1">"THIS STUFF GOT <em>STARDUST</em> IN IT OR SOMETHING. Potion of Fortitude made me <span class="text-body-secondary">feel like I can face the Dark Lord alone!</span></h2>
-                <p class="lead">- Ranni, a young witch.</p>
+        <div class="container col border-top" style = "padding: 20px">
+            <div id="modeldisplay">
             </div>
-            <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false" style="background-image: url(./images/ranni.jpg);"><title>Placeholder</title><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em"></text></svg>
-            </div>
-            </div>
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1">"THIS STUFF GOT <em>STARDUST</em> IN IT OR SOMETHING. Potion of Fortitude made me <span class="text-body-secondary">feel like I can face the Dark Lord alone!</span></h2>
-                <p class="lead">- Ranni, a young witch.</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false" style="background-image: url(./images/ranni.jpg);"><title>Placeholder</title><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em"></text></svg>
-            </div>
-            </div>
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1">"THIS STUFF GOT <em>STARDUST</em> IN IT OR SOMETHING. Potion of Fortitude made me <span class="text-body-secondary">feel like I can face the Dark Lord alone!</span></h2>
-                <p class="lead">- Ranni, a young witch.</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false" style="background-image: url(./images/ranni.jpg);"><title>Placeholder</title><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em"></text></svg>
-            </div>
-            </div>
-        <hr class="featurette-divider">
-
-        <h2 class="display-5 link-body-emphasis mb-1">Sample blog post</h2>
-        <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
-
-        <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
-      
+        </div>
+        
     </div>
     <!--Left Column Blog Post-->
 
@@ -322,46 +374,40 @@
     <!--Popular Items List-->
         <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary" style="width: 380px;">
             <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
-              <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-              <span class="fs-5 fw-semibold">Popular Items</span>
+              <span class="fs-5 fst-italic">Popular Items</span>
             </a>
-            <div class="list-group list-group-flush border-bottom scrollarea">
             <!--LIST GROUP ENTITY 1-->
-              <a href="#" class="list-group-item list-group-item-action active py-3 lh-sm" aria-current="true">
-                <div class="d-flex w-100 align-items-center justify-content-between">
-                  <strong class="mb-1">List group item heading</strong>
-                  <small>Wed</small>
+            <div class="container col border-top" style = "padding: 20px">
+                <div id="productdisplay" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
                 </div>
-                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
-              </a>
+            </div>
             <!--LIST GROUP ENTITY 1-->
             </div>
           </div>
         <!--Popular Items List-->
-        
-        <!--Social Media-->
-        <div class="p-4">
-          <h4 class="fst-italic">Elsewhere</h4>
-          <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-          </ol>
-        </div>
-        <!--Social Media-->
+    
       </div>
     </div>
+    
   </div>
 
 </main>
-
-<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-  <p class="mb-0">
-    <a href="#">Back to top</a>
-  </p>
+<footer class="py-5text-body-secondary bg-body-tertiary">
+    <footer class="">
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+          <p>&copy;   2024 Company, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+          </ul>
+          </div>
 </footer>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./index.js"></script>
+  <script src="./topproducts.js"></script>
+  
+  </body>
 
-    </body>
 </html>
