@@ -80,17 +80,14 @@ function clearSearch() {
                 </div>
                 <div class="card-header">${product.name}</div>
                 <div class="card-body">
-<<<<<<< HEAD
                     <p class="card-text">
                         <br>${category}</br>
                         <br>$${price}</br>
                     </p>
 
-=======
                     <p class="card-text">Price: $${product.price.toFixed(2)}</p>
                     <p class="card-text">Category: ${product.category}</p>
                     <p class="card-text">Color: ${product.color}</p>
->>>>>>> 93103af1ea61b7def56c3ee604057cc600416663
                     <button type="button" class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
