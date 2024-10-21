@@ -1,38 +1,38 @@
 {
   "potions": [
     {
-      "title": "Potion of Vitality",
+      "name": "Potion of Vitality",
       "description": "A potion to bring you back to health and get you back in the fight. Heals any wound or illness. Tastes like strawberries!",
       "image": "../images/healthPot.jpg",
       "price": 49.99
     },
     {
-      "title": "Potion of Strength",
+      "name": "Potion of Strength",
       "description": "A potion to give you the strength to face any challenge head-on. Grants incredible physical strength.",
       "image": "../images/strenghtPot.jpg",
       "price": 60.99
     },
     {
-      "title": "Potion of Haste",
-      "description": "A potion to bring you back to health and get you back in the fight. Heals any wound or illness. Tastes like strawberries!",
+      "name": "Potion of Haste",
+      "description": "A potion for when you need to move fast. Increases your movement speed.",
       "image": "../images/hastePot.jpg",
       "price": 80.99
     },
     {
-      "title": "Potion of Invisibility",
-      "description": "A potion to give you the strength to face any challenge head-on. Grants incredible physical strength.",
+      "name": "Potion of Invisibility",
+      "description": "A potion for when you want to stay out of sight. Grants temporary invisibility.",
       "image": "../images/invisPot.jpeg",
       "price": 129.99
     },
     {
-      "title": "Potion of Intellect",
-      "description": "A potion to bring you back to health and get you back in the fight. Heals any wound or illness. Tastes like strawberries!",
+      "name": "Potion of Intellect",
+      "description": "A potion to think through any problem. Greatly enhances thinking processes and awareness to transcendant levels! This one is a favorite of wizard apprentices.",
       "image": "../images/intPot.jpg",
       "price": 70.99
     },
     {
-      "title": "Potion of Fortitude",
-      "description": "A potion to give you the strength to face any challenge head-on. Grants incredible physical strength.",
+      "name": "Potion of Fortitude",
+      "description": "A potion for when you need to face an unstopable force. Grants incredible durability, making the user nearly invincible (be wary of High-Dark Warlock and Imp Overlord magic).",
       "image": "../images/fortitudePot.jpg",
       "price": 80.99
     }

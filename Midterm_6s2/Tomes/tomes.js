@@ -24,6 +24,7 @@ function showCardsContainingDescriptionB() {
       .then((myTomes) => loadTomes(myTomes, 3)) // Load tomes containing specific description
       .catch((err) => console.log("Error :" + err));
 }
+
   
 function loadTomes(tomesData, n) {
     let arrayTomes = tomesData.spells; // Access spells array from tomesData
