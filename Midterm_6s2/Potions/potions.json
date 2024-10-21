@@ -3,37 +3,37 @@
     {
       "name": "Potion of Vitality",
       "description": "A potion to bring you back to health and get you back in the fight. Heals any wound or illness. Tastes like strawberries!",
-      "image": "../images/healthPot.jpg",
+      "image": "./images/healthPot.jpg",
       "price": 49.99
     },
     {
       "name": "Potion of Strength",
       "description": "A potion to give you the strength to face any challenge head-on. Grants incredible physical strength.",
-      "image": "../images/strenghtPot.jpg",
+      "image": "./images/strenghtPot.jpg",
       "price": 60.99
     },
     {
       "name": "Potion of Haste",
       "description": "A potion for when you need to move fast. Increases your movement speed.",
-      "image": "../images/hastePot.jpg",
+      "image": "./images/hastePot.jpg",
       "price": 80.99
     },
     {
       "name": "Potion of Invisibility",
       "description": "A potion for when you want to stay out of sight. Grants temporary invisibility.",
-      "image": "../images/invisPot.jpeg",
+      "image": "./images/invisPot.jpeg",
       "price": 129.99
     },
     {
       "name": "Potion of Intellect",
       "description": "A potion to think through any problem. Greatly enhances thinking processes and awareness to transcendant levels! This one is a favorite of wizard apprentices.",
-      "image": "../images/intPot.jpg",
+      "image": "./images/intPot.jpg",
       "price": 70.99
     },
     {
       "name": "Potion of Fortitude",
       "description": "A potion for when you need to face an unstopable force. Grants incredible durability, making the user nearly invincible (be wary of High-Dark Warlock and Imp Overlord magic).",
-      "image": "../images/fortitudePot.jpg",
+      "image": "./images/fortitudePot.jpg",
       "price": 80.99
     }
   ]
