@@ -1,43 +1,40 @@
 {
-    "spells": [
-        {
-            "title": "Earth Tome",
-            "description": "A Novice Friendly Tome For Minor Manipulation of Dirt and Stone. Note: Popular Amongst Fourth-Class Academy Scholars",
-            "image": "../images/EarthTome.jpg",
-            "price": 90.99
-          },
-          {
-            "title": "Fire Tome",
-            "description": "An Advanced Beginner's Perfect Tome For Flame Manipulation. Note: A Go To Tome For Mana Control Classes. Exceptionally High Skill Curve.",
-            "image": "../images/FireTome.jpg",
-            "price": 100.99
-          },
-          {
-            "title": "Holy Tome",
-            "description": "A Competent Wizard's Go To Start On Deity Essence Extraction. Note: A Go To Tome For Protection And Rejuvenation Classes.",
-            "image": "../images/HolyTome.jpg",
-            "price": 300.99
-          },
-          {
-            "title": "Void Tome",
-            "description": "An Expert Archmage's First Textbook Over Astral Mana Starbinding and Manipulation. Note: Often Referenced and Studied By Academy Professors and Deans.",
-            "image": "../images/VoidTome.jpg",
-            "price": 899.99
-          },
-          {
-            "title": "Dark Tome",
-            "description": "An Unpredictable Tome For All Mages, But The Natural Next Step For Post-Grad WarPagers. Note: Hazardous And Potentially Fatal.",
-            "image": "../images/DarkTome.jpg",
-            "price": 999.99
-          },
-          {
-            "title": "Summoning Tome",
-            "description": "The Only Commercially Available Soulbinder For Freepagers! Note: Please Provide An Archcouncil Writ Signed In The Last 30 Days To Purchase.",
-            "image": "../images/VoidTome.jpg",
-            "price": 999.99
-          }
-    ]
-  
-  
-  
+  "tomes": [
+    {
+      "name": "Earth Tome",
+      "description": "A Novice Friendly Tome For Minor Manipulation of Dirt and Stone. Note: Popular Amongst Fourth-Class Academy Scholars",
+      "image": "../images/EarthTome.jpg",
+      "price": 90.99
+    },
+    {
+      "name": "Fire Tome",
+      "description": "An Advanced Beginner's Perfect Tome For Flame Manipulation. Note: A Go To Tome For Mana Control Classes. Exceptionally High Skill Curve.",
+      "image": "../images/FireTome.jpg",
+      "price": 100.99
+    },
+    {
+      "name": "Holy Tome",
+      "description": "A Competent Wizard's Go To Start On Deity Essence Extraction. Note: A Go To Tome For Protection And Rejuvenation Classes.",
+      "image": "../images/HolyTome.jpg",
+      "price": 300.99
+    },
+    {
+      "name": "Void Tome",
+      "description": "An Expert Archmage's First Textbook Over Astral Mana Starbinding and Manipulation. Note: Often Referenced and Studied By Academy Professors and Deans.",
+      "image": "../images/VoidTome.jpg",
+      "price": 899.99
+    },
+    {
+      "name": "Dark Tome",
+      "description": "An Unpredictable Tome For All Mages, But The Natural Next Step For Post-Grad WarPagers. Note: Hazardous And Potentially Fatal.",
+      "image": "../images/DarkTome.jpg",
+      "price": 999.99
+    },
+    {
+      "name": "Summoning Tome",
+      "description": "The Only Commercially Available Soulbinder For Freepagers! Note: Please Provide An Archcouncil Writ Signed In The Last 30 Days To Purchase.",
+      "image": "../images/VoidTome.jpg",
+      "price": 999.99
+    }
+  ]
 }

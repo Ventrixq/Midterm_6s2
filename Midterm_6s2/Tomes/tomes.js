@@ -1,110 +1,147 @@
-function showCardsSortedByPriceLowHigh() { 
+let tomesData = []; // Declare tomesData globally
+
+function showTomesSortedByPriceLowHigh() {
     fetch("./Tomes/tomes.json") // Fetch tomes.json
-      .then((response) => response.json())
-      .then((myTomes) => loadTomes(myTomes, 1)) // Load and sort tomes by price (low to high)
-      .catch((error) => console.log("Error :" + error));
-}
-  
-function showCardsSortedByPriceHighLow() {
-    fetch("./Tomes/tomes.json") // Fetch tomes.json
-      .then((response) => response.json())
-      .then((myTomes) => loadTomes(myTomes, 2)) // Load and sort tomes by price (high to low)
-      .catch((error) => console.log("Error :" + error));
-}
-  
-function showCardsContainingDescriptionA() {
-    const inputField = document.getElementById("inputField");
-    inputField.style.display = "block"; // Show the input field
-    showCardsContainingDescriptionB()
-}
-  
-function showCardsContainingDescriptionB() {
-    fetch("./Tomes/tomes.json") // Fetch tomes.json
-      .then((response) => response.json())
-      .then((myTomes) => loadTomes(myTomes, 3)) // Load tomes containing specific description
-      .catch((err) => console.log("Error :" + err));
+        .then((response) => response.json())
+        .then((myTomes) => loadTomes(myTomes, 1)) // Load and sort tomes by price (low to high)
+        .catch((error) => console.log("Error: " + error));
 }
 
-  
-function loadTomes(tomesData, n) {
-    let arrayTomes = tomesData.spells; // Access spells array from tomesData
+function showTomesSortedByPriceHighLow() {
+    fetch("./Tomes/tomes.json") // Fetch tomes.json
+        .then((response) => response.json())
+        .then((myTomes) => loadTomes(myTomes, 2)) // Load and sort tomes by price (high to low)
+        .catch((error) => console.log("Error: " + error));
+}
 
-    let sortedTomes;
-    
-    if (n == 1) { // Sort by price from low to high
-        sortedTomes = arrayTomes.sort((t1, t2) => 
-            t1.price > t2.price ? 1 : t1.price < t2.price ? -1 : 0
-        );
-    } else if (n === 2) { // Sort by price from high to low
-        sortedTomes = arrayTomes.sort((t1, t2) => 
-            t1.price < t2.price ? 1 : t1.price > t2.price ? -1 : 0
-        );
-    } else if (n === 3) {
-        // Filter tomes by description input
-        sortedTomes = [];
-        const inputDescription = document.getElementById("descriptionInput").value; // Get input description
-        document.getElementById("inputField").style.display = "none"; // Hide input field
+function showCardsContainingDescription() {
+    const descriptionInput = document.getElementById("descriptionInput").value.toLowerCase();
 
-        // Select tomes only containing input description
-        for (let tome of arrayTomes) {
-            if (tome.description.includes(inputDescription)) {
-                sortedTomes.push(tome);
-            }
-        }
+    // Clear the display area before filtering
+    const productDisplay = document.getElementById("productdisplay");
+    productDisplay.innerHTML = ""; // Clear previous results
+
+    // Filter tomes based on description and name
+    const filteredTomes = tomesData.filter(tome => 
+        (tome.description && tome.description.toLowerCase().includes(descriptionInput)) || 
+        (tome.name && tome.name.toLowerCase().includes(descriptionInput))
+    );
+
+    // Check if there are any filtered tomes and generate cards
+    if (filteredTomes.length === 0) {
+        productDisplay.innerHTML = "<p>No tomes found matching that description.</p>";
+    } else {
+        filteredTomes.forEach(tome => {
+            const tomeCard = document.createElement("div");
+            tomeCard.className = "col"; // Add Bootstrap column class for responsive design
+            
+            tomeCard.innerHTML = `
+                <div class="card text-center border shadow-0">
+                    <div class="bg-image hover-overlay ripple">
+                        <img src="${tome.image}" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(255, 255, 255, 0.5)"></div>
+                        </a>
+                    </div>
+                    <div class="card-header">${tome.name}</div> <!-- Updated to use tome.name -->
+                    <div class="card-body">
+                        <p class="card-text">${tome.description}</p>
+                        <p class="card-text">Price: $${tome.price}</p>
+                        <button type="button" class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            productDisplay.appendChild(tomeCard); // Add the tome card to the display area
+        });
     }
+}
 
-    var CardTomes = document.getElementById("productdisplay"); // Find Bootstrap ID card
-    CardTomes.innerHTML = ""; // Clear current tome data
+function clearSearch() {
+    const descriptionInput = document.getElementById("descriptionInput");
+    descriptionInput.value = ""; // Clear the search input
 
-    // Display tomes in a card format
-    for (let i = 0; i < sortedTomes.length; i++) {
-        let title = sortedTomes[i].title;
-        let description = sortedTomes[i].description;
-        let image = sortedTomes[i].image; // Use image path directly
-        let price = sortedTomes[i].price; // Tome price
+    // Show all tomes again
+    const productDisplay = document.getElementById("productdisplay");
+    productDisplay.innerHTML = ""; // Clear previous results
 
-        // Construct the HTML element
-        let AddCardTomes = document.createElement("div");
-        AddCardTomes.classList.add("productdisplay"); // Add Bootstrap class to the column
-        
-        AddCardTomes.innerHTML = `
-            <div class="card text-center border shadow-0 ">
+    // Re-display all tomes
+    tomesData.forEach(tome => {
+        const tomeCard = document.createElement("div");
+        tomeCard.className = "col"; // Add Bootstrap column class for responsive design
+
+        tomeCard.innerHTML = `
+            <div class="card text-center border shadow-0">
                 <div class="bg-image hover-overlay ripple">
-                    <img src="${image}" class="img-fluid" />
+                    <img src="${tome.image}" class="img-fluid" />
                     <a href="#!">
-                        <div class="mask" style="background-color: rgba(255, 255, 255, 255)"></div>
+                        <div class="mask" style="background-color: rgba(255, 255, 255, 0.5)"></div>
                     </a>
                 </div>
-                <div class="card-header">${title}</div>
+                <div class="card-header">${tome.name}</div>
                 <div class="card-body">
-                    <p class="card-text">
-                        ${description}
-                    </p>
-                    <p class="card-text">
-                        Price: $${price}
-                    </p>
-                    <button type="button" class="btn btn-primary">Buy</button>
+                    <p class="card-text">${tome.description}</p>
+                    <p class="card-text">Price: $${tome.price}</p>
+                    <button type="button" class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
         `;
-
-        CardTomes.appendChild(AddCardTomes); // Add card to the display area
-    } 
-}
-
-function fetchData() {
-    // Read form submission
-    const b = document.getElementById("my_form");
-    
-    b.addEventListener("submit", (event) => {
-        event.preventDefault(); // Prevent form from submitting traditionally
-        // Fetch JSON
-        fetch("./Tomes/tomes.json") // Fetch tomes.json
-            .then((response) => response.json())
-            .then((data) => appendData(data)) // Assuming appendData is defined elsewhere
-            .catch((error) => console.log("Error: " + error));
+        productDisplay.appendChild(tomeCard); // Add the tome card to the display area
     });
 }
 
-// Initialize the app by showing all tomes (or any specific function call)
-showCardsContainingDescriptionB();
+function loadTomes(tomesData, n) { 
+    let arrayTomes = tomesData.tomes; // Access tomes array from tomesData
+
+    let sortedTomes;
+
+    if (n === 1) { // Sort by price from low to high
+        sortedTomes = arrayTomes.sort((t1, t2) => 
+            t1.price - t2.price // Simplified sorting
+        );
+    } else if (n === 2) { // Sort by price from high to low
+        sortedTomes = arrayTomes.sort((t1, t2) => 
+            t2.price - t1.price // Simplified sorting
+        );
+    }
+
+    // Clear the display area
+    var productDisplay = document.getElementById("productdisplay");
+    productDisplay.innerHTML = ""; // Clear current tome data
+
+    // Display tomes in a card format
+    sortedTomes.forEach(tome => {
+        const tomeCard = document.createElement("div");
+        tomeCard.className = "col"; // Add Bootstrap column class for responsive design
+        
+        tomeCard.innerHTML = `
+            <div class="card text-center border shadow-0">
+                <div class="bg-image hover-overlay ripple">
+                    <img src="${tome.image}" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(255, 255, 255, 0.5)"></div>
+                    </a>
+                </div>
+                <div class="card-header">${tome.name}</div>
+                <div class="card-body">
+                    <p class="card-text">${tome.description}</p>
+                    <p class="card-text">Price: $${tome.price}</p>
+                    <button type="button" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        `;
+        productDisplay.appendChild(tomeCard); // Add card to the display area
+    });
+}
+
+function fetchTomeData() {
+    fetch("./Tomes/tomes.json")
+        .then((response) => response.json())
+        .then((data) => {
+            tomesData = data.tomes; // Assuming your JSON structure
+            loadTomes(data, 1); // Load all tomes on initialization
+        })
+        .catch((error) => console.log("Error: " + error));
+}
+
+// Initialize the app by showing all tomes
+fetchTomeData();

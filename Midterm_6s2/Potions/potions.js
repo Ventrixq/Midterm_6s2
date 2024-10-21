@@ -89,8 +89,6 @@ function clearSearch() {
     });
 }
 
-
-
 function loadPotions(potionsData, n) { 
     let arrayPotions = potionsData.potions; // Access potions array from potionsData
 
