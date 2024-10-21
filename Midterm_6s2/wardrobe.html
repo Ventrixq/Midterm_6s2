@@ -232,9 +232,11 @@
             <label for="descriptionInput">Search:</label>
             <input type="text" id="descriptionInput" placeholder="Name Of A Product">
             <button id="loader" onclick="showCardsContainingDescriptionB()">Submit</button>
+            <button id="clear" onclick="clearSearch()">Clear</button>
 
             <div class="container col border-top" style = "padding: 20px">
                 <div id="productdisplay" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                 <!-- Your spell cards will be dynamically generated here -->
                 </div>
             </div>
     
@@ -263,7 +265,26 @@
         </a>
         <ul class="list-unstyled ps-0">
           <li class="mb-1">
-            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="true">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#color-collapse" aria-expanded="false">
+              Price
+            </button>
+            <div class="collapse" id="color-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                      onclick="showWardrobeSortedByPriceHighLow()">Sort by highest</a></li>
+                  <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                      onclick="showWardrobeSortedByPriceLowHigh()">Sort by lowest</a></li>
+                </ul>
+              </ul>
+            </div>
+          </li>
+
+          <li class="border-top my-3"></li>
+
+
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="false">
               Category
             </button>
             <div class="collapse" id="category-collapse">

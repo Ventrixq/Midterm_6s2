@@ -1,121 +1,156 @@
-function showCardsSortedByPriceLowHigh() {
-    fetch("./wardrobedata.json")
-      .then((response) => response.json())
-      .then((myClothing) => loadClothing(myClothing, 1))
-      .catch((error) => console.log("Error :" + error));
-  }
-  
-  function showCardsSortedByPriceHighLow() {
-    fetch("./wardrobedata.json")
-      .then((response) => response.json())
-      .then((myClothing) => loadClothing(myClothing, 2))
-      .catch((error) => console.log("Error :" + error));
-  }
-  
-  function showCardsContainingDescriptionA() {
-    const inputField = document.getElementById("inputField");
-    inputField.style.display = "block"; // Show the input field
-    showCardsContainingDescriptionB()
-  }
-  
-  function showCardsContainingDescriptionB() {
-    fetch("./wardrobedata.json")
-      .then((response) => response.json())
-      .then((myClothing) => loadClothing(myClothing, 3))
-      .catch((err) => console.log("Error :" + err));
-  }
-  
-  function loadClothing(clothing, n) {
-    let arrayClothing = [];
-    for (let i = 0; i < clothing.products.length; i++) { //Convert myMovies to Array
-      arrayClothing.push(clothing.products[i]);
+let wardrobeData = []; // Declare wardrobeData globally
+
+function showWardrobeSortedByPriceLowHigh() {
+    fetch("./wardrobedata.json") // Fetch wardrobedata.json
+        .then((response) => response.json())
+        .then((data) => loadWardrobe(data.products, 1)) // Load and sort wardrobe by price (low to high)
+        .catch((error) => console.log("Error: " + error));
+}
+
+function showWardrobeSortedByPriceHighLow() {
+    fetch("./wardrobedata.json") // Fetch wardrobedata.json
+        .then((response) => response.json())
+        .then((data) => loadWardrobe(data.products, 2)) // Load and sort wardrobe by price (high to low)
+        .catch((error) => console.log("Error: " + error));
+}
+
+function showCardsContainingDescription() {
+    const descriptionInput = document.getElementById("descriptionInput").value.toLowerCase();
+
+    // Clear the display area before filtering
+    const productDisplay = document.getElementById("productdisplay");
+    productDisplay.innerHTML = ""; // Clear previous results
+
+    // Filter wardrobe based on name or color
+    const filteredProducts = wardrobeData.filter(product => 
+        (product.name && product.name.toLowerCase().includes(descriptionInput)) || 
+        (product.color && product.color.toLowerCase().includes(descriptionInput))
+    );
+
+    // Check if there are any filtered products and generate cards
+    if (filteredProducts.length === 0) {
+        productDisplay.innerHTML = "<p>No products found matching that description.</p>";
+    } else {
+        filteredProducts.forEach(product => {
+            const productCard = document.createElement("div");
+            productCard.className = "col"; // Add Bootstrap column class for responsive design
+            
+            productCard.innerHTML = `
+                <div class="card text-center border shadow-0">
+                    <div class="bg-image hover-overlay ripple">
+                        <img src="${product.imageUrl}" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(255, 255, 255, 0.5)"></div>
+                        </a>
+                    </div>
+                    <div class="card-header">${product.name}</div>
+                    <div class="card-body">
+                        <p class="card-text">Price: $${product.price.toFixed(2)}</p>
+                        <p class="card-text">Category: ${product.category}</p>
+                        <p class="card-text">Color: ${product.color}</p>
+                        <button type="button" class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            productDisplay.appendChild(productCard); // Add the product card to the display area
+        });
     }
-  
-    if (n == 1) { //Sort array from low to high
-      sortedClothing = arrayClothing.sort((p1, p2) =>
-        p1.price > p2.price ? 1 : p1.price < p2.price ? -1 : 0
-      );
-    } 
+}
 
-    else if (n === 2) { //Sort array from high to low
-      sortedClothing = arrayClothing.sort((p1, p2) =>
-        p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
-      );
-    } 
-    else if (n === 3) {
+function clearSearch() {
+    const descriptionInput = document.getElementById("descriptionInput");
+    descriptionInput.value = ""; // Clear the search input
 
-      // Description Input
-      sortedClothing = [];     // Clear Movies
-      const inputDescription = document.getElementById("descriptionInput").value; // Description
-      document.getElementById("inputField").style.display = "none"; // Input field Mask
-  
-      // Select movies only containing input description
-      for (let clothing of arrayClothing) {
-        if (clothing.name.includes(inputDescription)) {
-          sortedClothing.push(clothing);
-        }
-      }
-    } 
-  
-    var CardClothing = document.getElementById("productdisplay"); // Find bootstap ID Card
-  
-    CardClothing.innerHTML = ""; // Clear Movie Data
-      /*
-  {
-            "name": "Drilocarius V2's",
-            "imageUrl": "./OutfitImages/DrilocariusV2.webp",
-            "price": 90.99,
-            "category": "Robes", 
-            "color": "Red"
-        },
-  */
+    // Show all products again
+    const productDisplay = document.getElementById("productdisplay");
+    productDisplay.innerHTML = ""; // Clear previous results
 
-    for (let i = 0; i < sortedClothing.length; i++) {
-      let name = sortedClothing[i].name;
-      let url = sortedClothing[i].imageUrl;
-      let price = sortedClothing[i].price;
-      let category = sortedClothing[i].category;
-      let color = sortedClothing[i].color;
-      // construct the HTML element
-      let AddCardClothing = document.createElement("div");
-      AddCardClothing.classList.add("productdisplay"); // Add Bootstrap class to the column
-      
-      AddCardClothing.innerHTML = `
-           <div class="card text-center border shadow-0 ">
+    // Re-display all products
+    wardrobeData.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.className = "col"; // Add Bootstrap column class for responsive design
+
+        productCard.innerHTML = `
+            <div class="card text-center border shadow-0">
                 <div class="bg-image hover-overlay ripple">
-                    <img src=${url} class="img-fluid" />
+                    <img src="${product.imageUrl}" class="img-fluid" />
                     <a href="#!">
-                    <div class="mask" style="background-color: rgba(255, 255, 255, 255)"></div>
+                        <div class="mask" style="background-color: rgba(255, 255, 255, 0.5)"></div>
                     </a>
                 </div>
-                <div class="card-header">${name}</div>
+                <div class="card-header">${product.name}</div>
                 <div class="card-body">
+<<<<<<< HEAD
                     <p class="card-text">
                         <br>${category}</br>
                         <br>$${price}</br>
                     </p>
 
+=======
+                    <p class="card-text">Price: $${product.price.toFixed(2)}</p>
+                    <p class="card-text">Category: ${product.category}</p>
+                    <p class="card-text">Color: ${product.color}</p>
+>>>>>>> 93103af1ea61b7def56c3ee604057cc600416663
                     <button type="button" class="btn btn-primary">Add to Cart</button>
                 </div>
-           </div>
-         `;
-    
-      CardClothing.appendChild(AddCardClothing);
-    } // end of for
-  }
-  
-  function fetchData() {
-    //Read form
-    const b = document.getElementById("my_form");
-    
-    b.addEventListener("submit", (event) => {
-      event.preventDefault(); // Prevent the form from submitting in the traditional way
-      //fetch JSON
-      fetch("./wardrobedata.json")
-        .then((response) => response.json())
-        .then((data) => appendData(data))
-        .catch((error) => console.log("Error: " + error));
+            </div>
+        `;
+        productDisplay.appendChild(productCard); // Add card to the display area
     });
-  }
-  
-  showCardsContainingDescriptionB()
+}
+
+function loadWardrobe(products, n) { 
+    let sortedProducts;
+
+    if (n === 1) { // Sort by price from low to high
+        sortedProducts = products.sort((p1, p2) => 
+            p1.price - p2.price // Simplified sorting
+        );
+    } else if (n === 2) { // Sort by price from high to low
+        sortedProducts = products.sort((p1, p2) => 
+            p2.price - p1.price // Simplified sorting
+        );
+    }
+
+    // Clear the display area
+    var productDisplay = document.getElementById("productdisplay");
+    productDisplay.innerHTML = ""; // Clear current product data
+
+    // Display products in a card format
+    sortedProducts.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.className = "col"; // Add Bootstrap column class for responsive design
+        
+        productCard.innerHTML = `
+            <div class="card text-center border shadow-0">
+                <div class="bg-image hover-overlay ripple">
+                    <img src="${product.imageUrl}" class="img-fluid" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(255, 255, 255, 0.5)"></div>
+                    </a>
+                </div>
+                <div class="card-header">${product.name}</div>
+                <div class="card-body">
+                    <p class="card-text">Price: $${product.price.toFixed(2)}</p>
+                    <p class="card-text">Category: ${product.category}</p>
+                    <p class="card-text">Color: ${product.color}</p>
+                    <button type="button" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        `;
+        productDisplay.appendChild(productCard); // Add card to the display area
+    });
+}
+
+function fetchWardrobeData() {
+    fetch("./wardrobedata.json")
+        .then((response) => response.json())
+        .then((data) => {
+            wardrobeData = data.products; // Access products array from wardrobeData
+            loadWardrobe(wardrobeData, 1); // Load all products on initialization
+        })
+        .catch((error) => console.log("Error: " + error));
+}
+
+// Initialize the app by showing all products
+fetchWardrobeData();
