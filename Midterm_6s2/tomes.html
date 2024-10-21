@@ -292,44 +292,22 @@
           <div class="flex-shrink-0 p-3" style="width: 280px;">
 
             <!--sort by catagory-->
-            <a href="/"
-              class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-              <svg class="bi pe-none me-2" width="0" height="0">
-                <use xlink:href="#bootstrap" />
-              </svg>
-              <span class="fs-5 fw-semibold">Preferences</span>
-            </a>
+            
             <ul class="list-unstyled ps-0">
-              <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="false">
-                  Category
-                </button>
-                <div class="collapse" id="category-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Robes</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Cloaks</a>
-                    </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Jackets</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
 
-              <li class="border-top my-3"></li>
 
               <!--sort by price-->
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                   data-bs-toggle="collapse" data-bs-target="#color-collapse" aria-expanded="false">
-                  Price
+                  Filter by Price
                 </button>
                 <div class="collapse" id="color-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                        onclick="showPotionsSortedByPriceHighLow()">Sort by highest</a></li>
+                        onclick="showTomesSortedByPriceHighLow()">Sort by highest</a></li>
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                        onclick="showPotionsSortedByPriceLowHigh()">Sort by lowest</a></li>
+                        onclick="showTomesSortedByPriceLowHigh()">Sort by lowest</a></li>
                   </ul>
                 </div>
               </li>
