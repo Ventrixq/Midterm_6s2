@@ -294,40 +294,38 @@
   <!--NAVIGATION BAR-->
   
   <!--GRIMSTONE CAROUSEL-->
-  <div id="myCarousel" class="carousel slide mb-6 border rounded" data-bs-ride="carousel">
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      <div class="carousel-item active" style="background-image: url(./DashboardImages/Wardrobe.jpeg); background-size: 100% 100%;">
         <div class="container">
           <div class="carousel-caption text-start">
-            <h1>Outfits</h1>
-            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+            <h1 style="color: rgb(255, 255, 255)">Outfits</h1>
+            <p style="color: rgb(255, 255, 255)" class="opacity-75">View our wardrobe of powerful and stylish outfits</p>
+            <p><a class="btn btn-lg btn-primary" href="./spellPage.html">Browse</a></p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      <div class="carousel-item" style="background-image: url(./DashboardImages/Potions.jpeg); background-size: 100% 100%;">
         <div class="container">
           <div class="carousel-caption">
-            <h1>Potions</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            <h1 style="color: rgb(255, 255, 255)">Potions</h1>
+            <p style="color: blanchedalmond" class="opacity-75">Find potions for your every need.</p>
+            <p><a class="btn btn-lg btn-primary" href="./potionPage.html">Browse</a></p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      <div class="carousel-item" style="background-image: url(./DashboardImages/Tomes.png); background-size: 100% 100%;">
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>Tomes</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+            <h1 style="color: rgb(255, 255, 255)">Tomes</h1>
+            <p style="color: rgb(255, 255, 255)">View our catalog of powerful spells</p>
+            <p ><a class="btn btn-lg btn-primary" href="./about.html">Browse</a></p>
           </div>
         </div>
       </div>
@@ -370,44 +368,26 @@
           <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
         </div>
     <!--ABOUT GRIMSTONE SNIPPET-->
+       <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-body-tertiary rounded">
+          <h4 class="fst-italic">Popular Items</h4>
+          <div class="container col border-top" style = "padding: 20px">
+                <div id="productdisplay" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
+          </div>  
+        </div>
 
-    <!--Popular Items List-->
-        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary" style="width: 380px;">
-            <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
-              <span class="fs-5 fst-italic">Popular Items</span>
-            </a>
-            <!--LIST GROUP ENTITY 1-->
-            <div class="container col border-top" style = "padding: 20px">
-                <div id="productdisplay" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
-                </div>
-            </div>
-            <!--LIST GROUP ENTITY 1-->
-            </div>
-          </div>
-        <!--Popular Items List-->
-    
       </div>
     </div>
     
   </div>
 
 </main>
-<footer class="py-5text-body-secondary bg-body-tertiary">
-    <footer class="">
-      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-          <p>&copy;   2024 Company, Inc. All rights reserved.</p>
-          <ul class="list-unstyled d-flex">
-              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-              <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-          </ul>
-          </div>
-</footer>
   
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./index.js"></script>
-  <script src="./topproducts.js"></script>
-  
-  </body>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./index.js"></script>
+<script src="./topproducts.js"></script>
+
+</body>
 
 </html>
