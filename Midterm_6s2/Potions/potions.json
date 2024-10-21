@@ -1,17 +1,40 @@
 {
-    "tomes": [
-      {
-        "title": "Fire Tome",
-        "description": "A tome of fiery spells.",
-        "color": "red",
-        "image": "../images/FireTome.jpg"
-      },
-      {
-        "title": "Fortitude Potion",
-        "description": "A potion for enhancing strength.",
-        "color": "blue",
-        "image": "../images/fortitudePot.jpg"
-      }
-    ]
-  }
-  
+  "potions": [
+    {
+      "title": "Potion of Vitality",
+      "description": "A potion to bring you back to health and get you back in the fight. Heals any wound or illness. Tastes like strawberries!",
+      "image": "../images/healthPot.jpg",
+      "price": 49.99
+    },
+    {
+      "title": "Potion of Strength",
+      "description": "A potion to give you the strength to face any challenge head-on. Grants incredible physical strength.",
+      "image": "../images/strenghtPot.jpg",
+      "price": 60.99
+    },
+    {
+      "title": "Potion of Haste",
+      "description": "A potion to bring you back to health and get you back in the fight. Heals any wound or illness. Tastes like strawberries!",
+      "image": "../images/hastePot.jpg",
+      "price": 80.99
+    },
+    {
+      "title": "Potion of Invisibility",
+      "description": "A potion to give you the strength to face any challenge head-on. Grants incredible physical strength.",
+      "image": "../images/invisPot.jpeg",
+      "price": 129.99
+    },
+    {
+      "title": "Potion of Intellect",
+      "description": "A potion to bring you back to health and get you back in the fight. Heals any wound or illness. Tastes like strawberries!",
+      "image": "../images/intPot.jpg",
+      "price": 70.99
+    },
+    {
+      "title": "Potion of Fortitude",
+      "description": "A potion to give you the strength to face any challenge head-on. Grants incredible physical strength.",
+      "image": "../images/fortitudePot.jpg",
+      "price": 80.99
+    }
+  ]
+}
