@@ -3,19 +3,19 @@
         {
             "name": "Gandarf",
             "imageUrl": "./DashboardImages/Gandarf.jpeg",
-            "description": "The Coolest Guy Around",
+            "description": "<q>Ever Since I started modelling for Grimstone, I've never felt more comfortable and good looking walking around the Dark Forest of Psylon!</q>",
             "age": 233
         },
         {
             "name": "Mithrandite",
             "imageUrl": "./DashboardImages/Mithrandite.jpeg",
-            "description": "The Second Coolest Guy Around",
+            "description": "<q>Grimstone Jackets are a must have for any scholar. The heavy enchantments let me mess with any of my tomes with no worry about ripping my collar!</q>",
             "age": 123
         },
         {
             "name": "Ranni",
             "imageUrl": "./DashboardImages/Ranni.avif",
-            "description": "The Second Coolest Guy Around",
+            "description": "<q>My summons have absolutely adored my Grimstone Cloaks! When it's Grimstone, you never have to fret about your moonlight spells giving you shivers! As a long time Grimstone Model and fan, I'm here to represent Grimstone as a pinnacle of class and functionality.</q>",
             "age": 123
         }
      
