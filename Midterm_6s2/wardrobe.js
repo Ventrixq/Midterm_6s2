@@ -95,7 +95,7 @@ function showCardsSortedByPriceLowHigh() {
                         <br>$${price}</br>
                     </p>
 
-                    <button type="button" class="btn btn-primary">Buy</button>
+                    <button type="button" class="btn btn-primary">Add to Cart</button>
                 </div>
            </div>
          `;
