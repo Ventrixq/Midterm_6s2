@@ -15,47 +15,49 @@ function showWardrobeSortedByPriceHighLow() {
 }
 
 function showCardsContainingDescription() {
-    const descriptionInput = document.getElementById("descriptionInput").value.toLowerCase();
+  const descriptionInput = document.getElementById("descriptionInput").value.toLowerCase();
 
-    // Clear the display area before filtering
-    const productDisplay = document.getElementById("productdisplay");
-    productDisplay.innerHTML = ""; // Clear previous results
+  // Clear the display area before filtering
+  const productDisplay = document.getElementById("productdisplay");
+  productDisplay.innerHTML = ""; // Clear previous results
 
-    // Filter wardrobe based on name or color
-    const filteredProducts = wardrobeData.filter(product => 
-        (product.name && product.name.toLowerCase().includes(descriptionInput)) || 
-        (product.color && product.color.toLowerCase().includes(descriptionInput))
-    );
+  // Filter wardrobe products based on name, category, or color
+  const filteredProducts = wardrobeData.filter(product => 
+      (product.name && product.name.toLowerCase().includes(descriptionInput)) ||
+      (product.category && product.category.toLowerCase().includes(descriptionInput)) ||
+      (product.color && product.color.toLowerCase().includes(descriptionInput))
+  );
 
-    // Check if there are any filtered products and generate cards
-    if (filteredProducts.length === 0) {
-        productDisplay.innerHTML = "<p>No products found matching that description.</p>";
-    } else {
-        filteredProducts.forEach(product => {
-            const productCard = document.createElement("div");
-            productCard.className = "col"; // Add Bootstrap column class for responsive design
-            
-            productCard.innerHTML = `
-                <div class="card text-center border shadow-0">
-                    <div class="bg-image hover-overlay ripple">
-                        <img src="${product.imageUrl}" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(255, 255, 255, 0.5)"></div>
-                        </a>
-                    </div>
-                    <div class="card-header">${product.name}</div>
-                    <div class="card-body">
-                        <p class="card-text">Price: $${product.price.toFixed(2)}</p>
-                        <p class="card-text">Category: ${product.category}</p>
-                        <p class="card-text">Color: ${product.color}</p>
-                        <button type="button" class="btn btn-primary">Add to Cart</button>
-                    </div>
-                </div>
-            `;
-            productDisplay.appendChild(productCard); // Add the product card to the display area
-        });
-    }
+  // Check if there are any filtered products and generate cards
+  if (filteredProducts.length === 0) {
+      productDisplay.innerHTML = "<p>No wardrobe items found matching that search.</p>";
+  } else {
+      filteredProducts.forEach(product => {
+          const productCard = document.createElement("div");
+          productCard.className = "col"; // Add Bootstrap column class for responsive design
+          
+          productCard.innerHTML = `
+              <div class="card text-center border shadow-0">
+                  <div class="bg-image hover-overlay ripple">
+                      <img src="${product.imageUrl}" class="img-fluid" />
+                      <a href="#!">
+                          <div class="mask" style="background-color: rgba(255, 255, 255, 0.5)"></div>
+                      </a>
+                  </div>
+                  <div class="card-header">${product.name}</div>
+                  <div class="card-body">
+                      <p class="card-text">Category: ${product.category}</p>
+                      <p class="card-text">Color: ${product.color}</p>
+                      <p class="card-text">Price: $${product.price}</p>
+                      <button type="button" class="btn btn-primary">Add to Cart</button>
+                  </div>
+              </div>
+          `;
+          productDisplay.appendChild(productCard); // Add the product card to the display area
+      });
+  }
 }
+
 
 function clearSearch() {
     const descriptionInput = document.getElementById("descriptionInput");
@@ -80,9 +82,10 @@ function clearSearch() {
                 </div>
                 <div class="card-header">${product.name}</div>
                 <div class="card-body">
-                    <p class="card-text">Price: $${product.price.toFixed(2)}</p>
                     <p class="card-text">Category: ${product.category}</p>
                     <p class="card-text">Color: ${product.color}</p>
+                    <p class="card-text">Price: $${product.price.toFixed(2)}</p>
+
                     <button type="button" class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
@@ -123,9 +126,10 @@ function loadWardrobe(products, n) {
                 </div>
                 <div class="card-header">${product.name}</div>
                 <div class="card-body">
-                    <p class="card-text">Price: $${product.price.toFixed(2)}</p>
                     <p class="card-text">Category: ${product.category}</p>
                     <p class="card-text">Color: ${product.color}</p>
+                    <p class="card-text">Price: $${product.price.toFixed(2)}</p>
+
                     <button type="button" class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
