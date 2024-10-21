@@ -86,6 +86,7 @@ function clearSearch() {
                     <p class="card-text">Color: ${product.color}</p>
                     <p class="card-text">Price: $${product.price.toFixed(2)}</p>
 
+
                     <button type="button" class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
